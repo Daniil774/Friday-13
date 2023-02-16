@@ -26,24 +26,24 @@ namespace Friday_13
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int cen, j, m;
-            m = 0;
-            j = 1;
+            int cen, a, b;
+            b = 0;
+            a = 1;
             string str = textBox1.Text;
-            cen = int.Parse(str);
+            cen = Convert.ToInt32(str);
             Regex regex = new Regex(@"DayOfWeek == DayOfWeek.Friday(\w*)");
             MatchCollection matches = regex.Matches(str);
             for(int i = cen; i < cen + 1; i++)
             {
-                for (j = 1; j <= 12; j++)
+                for (a = 1; a <= 12; a++)
                 {
-                    DateTime dm = new DateTime(i, j, 13);
+                    DateTime dm = new DateTime(i, a, 13);
                     if (dm.DayOfWeek == DayOfWeek.Friday)
-                        m += 1;
+                        b += 1;
                 }
             }
             listBox1.Items.Add("Количество чёрных пятниц в " + str + " году" + " = " +
-            m.ToString());
+            b.ToString());
         }
     }
 }
